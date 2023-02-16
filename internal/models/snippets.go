@@ -22,7 +22,8 @@ type SnippetModel struct {
 func (m *SnippetModel) Insert(
 	title string,
 	content string,
-	expires int) (int, error) {
+	expires int,
+) (int, error) {
 
 	stmt := `INSERT INTO snippets (title, content, created, expires) 
 	VALUES (?, ?, UTC_TIMESTAMP(), DATE_ADD(UTC_TIMESTAMP(), INTERVAL ? DAY))`
